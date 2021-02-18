@@ -29,7 +29,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     ArrayList<Integer> colors = new ArrayList<Integer>(Arrays.asList(
             Color.rgb(192,192,192), Color.rgb(0,128,0),
             Color.rgb(128,0,128), Color.rgb(0,128,128),
-            Color.rgb(255,0,255), Color.rgb(0,0,255)
+            Color.rgb(255,0,255), Color.rgb(0,0,255),
+            Color.rgb(150,50,255),
     ));
 
     RectF myRect = new RectF();
@@ -77,7 +78,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             float dy = 40;
 
             float dx2 = -50;
-            float dy2 = -60;
+            float dy2 = -40;
 
             // выполняем цикл (рисуем кадры) пока флаг включен
             while (runFlag) {
@@ -118,7 +119,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                         dist -=100;
 
                     }
-                    else if (x1 == x || y1 == y) {
+                    else if (x1 + rad == x + rad || y1 + rad == y + rad ) {
                         dx *= -1;
                         dx2 *= -1;
                         dy *= -1;
@@ -148,7 +149,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
                     if (p.getColor() == p2.getColor()){
                         Paint pt = new Paint();
-                        pt.setColor(Color.BLACK);
+                        pt.setColor(Color.CYAN);
                         pt.setTextSize(50);
                         c.drawText("Same Color! You Won!!", 300, 200, pt);
                         runFlag=false;
